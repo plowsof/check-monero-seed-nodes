@@ -1,0 +1,3 @@
+[submodule "py-levin"]
+	path = py-levin
+	url = https://github.com/sanderfoobar/py-levin
