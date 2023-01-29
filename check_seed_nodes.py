@@ -2,8 +2,7 @@ import sys
 import socket
 import socks
 import requests
-import sys 
-sys.path.append('./py_levin')
+import pprint
 
 from levin.section import Section
 from levin.bucket import Bucket
@@ -13,13 +12,14 @@ from levin.constants import P2P_COMMANDS, LEVIN_SIGNATURE
 testnet_id= b'\x12\x30\xF1\x71\x61\x04\x41\x61\x17\x31\x00\x82\x16\xA1\xA1\x11'
 stagenet_id= b'\x12\x30\xF1\x71\x61\x04\x41\x61\x17\x31\x00\x82\x16\xA1\xA1\x12'
 default_net_node = "https://raw.githubusercontent.com/monero-project/monero/master/src/p2p/net_node.inl"
+
 args = sys.argv
 if len(args) == 2:
     # overwrite net_node with file at url
     r = requests.get(default_net_node)
     lines = r.iter_lines(decode_unicode=True)
 else:
-    with open("net_node.inl","r") as f:
+    with open("../net_node.inl","r") as f:
         lines = f.readlines()
 
 def check_ip(host,ip):
@@ -47,7 +47,7 @@ def check_ip(host,ip):
     # print(">> sent packet \'%s\'" % P2P_COMMANDS[bucket.command])
     buckets = []
     while 1:
-        buffer = sock.recv(8)
+        print(buffer)
         if not buffer:
             #sys.stderr.write("Invalid response; exiting\n")
             return False
@@ -73,8 +73,16 @@ for line in lines:
 for node in nodes:
     host = node.split(":")[0]
     ip=node.split(":")[1]
-    if check_ip(host, int(ip)):
-        print(f"{node} online")
-    else:
+    attempts = 0
+    while attempts < 3:
+        if check_ip(host, int(ip)):
+            print(f"{node} online")
+            attempts = 0
+            break
+        else:
+            attempts+=1
+    if attempts != 0:
         print(f"{node} offline")
+
+
 

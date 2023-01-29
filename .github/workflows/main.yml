@@ -1,10 +1,11 @@
 on:
+  push:
   workflow_dispatch:
     inputs:
       node_inl:
         description: 'Custom net_node.inl url'
         required: false
-        default: ''
+        default: 'https://raw.githubusercontent.com/monero-project/monero/master/src/p2p/net_node.inl'
 
 jobs:
   check_seed_nodes:
@@ -12,12 +13,14 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
+        
       - name: Setup tor/socks
-        uses: tor-actions/setup-tor@main
-      - run: |
-          pip install PySocks
-      - name: Check ipv4/tor seed nodes
         run: |
+          sudo apt install tor -y
+          pip install PySocks
           cd py_levin
-          python3 ../check_seed_nodes.py ${{ github.event.inputs.node_inl }}
+          mv ../check_seed_nodes.py .
+          python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
