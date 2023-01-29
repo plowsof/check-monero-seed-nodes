@@ -47,7 +47,7 @@ def check_ip(host,ip):
     # print(">> sent packet \'%s\'" % P2P_COMMANDS[bucket.command])
     buckets = []
     while 1:
-        print(buffer)
+        buffer = sock.recv(8)
         if not buffer:
             #sys.stderr.write("Invalid response; exiting\n")
             return False

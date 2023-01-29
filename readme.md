@@ -1,8 +1,8 @@
 todo: emojis and daily github workflow
 
-`pip install PySocks`
-`git clone https://github.com/plowsof/check-monero-seed-nodes`
-`cd check-monero-seed-nodes && python3 ../check_seed_nodes.py`
+`pip install PySocks`    
+`git clone https://github.com/plowsof/check-monero-seed-nodes`    
+`cd check-monero-seed-nodes && python3 ../check_seed_nodes.py`    
 
 ```
 176.9.0.187:28080 online
