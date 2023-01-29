@@ -1,7 +1,7 @@
 import sys
 import socket
 import socks
-import os
+import requests
 
 from levin.section import Section
 from levin.bucket import Bucket
@@ -10,7 +10,16 @@ from levin.constants import P2P_COMMANDS, LEVIN_SIGNATURE
 
 testnet_id= b'\x12\x30\xF1\x71\x61\x04\x41\x61\x17\x31\x00\x82\x16\xA1\xA1\x11'
 stagenet_id= b'\x12\x30\xF1\x71\x61\x04\x41\x61\x17\x31\x00\x82\x16\xA1\xA1\x12'
-#os.chdir("./py_levin")
+default_net_node = "https://raw.githubusercontent.com/monero-project/monero/master/src/p2p/net_node.inl"
+args = sys.argv
+if len(args) == 2:
+    # overwrite net_node with file at url
+    r = requests.get(default_net_node)
+    lines = r.iter_lines(decode_unicode=True)
+else:
+    with open("net_node.inl","r") as f:
+        lines = f.readlines()
+
 def check_ip(host,ip):
     global testnet_id,stagenet_id
     network = None
@@ -25,7 +34,7 @@ def check_ip(host,ip):
         sock.settimeout(30)
         sock.connect((host,ip))
     except:
-        sys.stderr.write("unable to connect to %s:%d\n" % (host, ip))
+        #sys.stderr.write("unable to connect to %s:%d\n" % (host, ip))
         return False
 
     bucket = Bucket.create_handshake_request(network_id=network)
@@ -38,17 +47,13 @@ def check_ip(host,ip):
     while 1:
         buffer = sock.recv(8)
         if not buffer:
-            sys.stderr.write("Invalid response; exiting\n")
+            #sys.stderr.write("Invalid response; exiting\n")
             return False
 
         if not buffer.startswith(bytes(LEVIN_SIGNATURE)):
-            sys.stderr.write("Invalid response; exiting\n")
+            #sys.stderr.write("Invalid response; exiting\n")
             return False
-
         return True
-
-with open("net_node.inl","r") as f:
-    lines = f.readlines()
 
 at_ipv4=0
 at_anon=0
