@@ -2,6 +2,8 @@ import sys
 import socket
 import socks
 import requests
+import sys 
+sys.path.append('./py_levin')
 
 from levin.section import Section
 from levin.bucket import Bucket
