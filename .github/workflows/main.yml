@@ -13,8 +13,9 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Setup tor
+      - name: Setup tor/socks
         uses: tor-actions/setup-tor@main
+      - run: pip install PySocks
       
       - name: Check ipv4/tor seed nodes
         run: |
