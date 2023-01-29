@@ -13,13 +13,11 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Setup tor/socks/pythonpath
+      - name: Setup tor/socks
         uses: tor-actions/setup-tor@main
       - run: |
-          ls
           pip install PySocks
-          PYTHONPATH=../../py_levin
-      
       - name: Check ipv4/tor seed nodes
         run: |
+          export PYTHONPATH="../../py_levin"
           python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
