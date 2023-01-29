@@ -13,9 +13,12 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Setup tor/socks
+      - name: Setup tor/socks/pythonpath
         uses: tor-actions/setup-tor@main
-      - run: pip install PySocks
+      - run: |
+          ls
+          pip install PySocks
+          PYTHONPATH=../../py_levin
       
       - name: Check ipv4/tor seed nodes
         run: |
