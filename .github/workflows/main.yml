@@ -19,5 +19,6 @@ jobs:
           pip install PySocks
       - name: Check ipv4/tor seed nodes
         run: |
-          export PYTHONPATH="./py_levin/"
+          echo $PWD
+          echo "::set-env name=PYTHONPATH::./py_levin/"
           python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
