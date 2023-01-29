@@ -20,5 +20,5 @@ jobs:
       - name: Check ipv4/tor seed nodes
         run: |
           echo $PWD
-          echo "::set-env name=PYTHONPATH::./py_levin/"
+          echo "PYTHONPATH=./py_levin/" >> $GITHUB_ENV
           python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
