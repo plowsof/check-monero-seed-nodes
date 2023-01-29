@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+    inputs:
+      node_inl:
+        description: 'Custom net_node.inl url'
+        required: false
+        default: ''
+
+jobs:
+  check_seed_nodes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Setup tor
+        uses: tor-actions/setup-tor@v1
+      
+      - name: Check ipv4/tor seed nodes
+        run: |
+          python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
