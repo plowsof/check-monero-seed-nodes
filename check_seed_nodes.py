@@ -30,9 +30,10 @@ def check_ip(host,ip):
     if str(ip).startswith("2"):
         network = testnet_id
     try:
-        socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050, True)
-        sock = socks.socksocket()
-        #sock = socket.socket()
+        sock = socket.socket()
+        if "onion" in host:
+            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050, True)
+            sock = socks.socksocket()
         sock.settimeout(30)
         sock.connect((host,ip))
     except:
