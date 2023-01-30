@@ -15,12 +15,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-        
-      - name: Setup tor/socks
+      - name: Check tor/ipv4 seed nodes
         run: |
           sudo apt install tor -y
           pip install PySocks
           cd py_levin
           mv ../check_seed_nodes.py .
           python3 check_seed_nodes.py ${{ github.event.inputs.node_inl }}
+      - name: Commit files
+        run: |
+          git add readme.md
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "codeberg"
+          git commit -m "Update node status" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
