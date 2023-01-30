@@ -34,8 +34,12 @@ def check_ip(host,ip):
 
     bucket = Bucket.create_handshake_request(network_id=network)
 
-    sock.send(bucket.header())
-    sock.send(bucket.payload())
+    try:
+        sock.send(bucket.header())
+        sock.send(bucket.payload())
+    except:
+        return False
+
 
     # print(">> sent packet \'%s\'" % P2P_COMMANDS[bucket.command])
     buckets = []
