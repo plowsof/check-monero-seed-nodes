@@ -18,6 +18,8 @@ jobs:
           submodules: recursive
       - name: Check tor/ipv4 seed nodes
         run: |
+          sudo apt install i2pd
+          sudo systemctl start i2pd
           sudo apt install tor -y
           pip install PySocks
           cd py_levin
