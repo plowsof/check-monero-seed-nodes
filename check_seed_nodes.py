@@ -129,8 +129,9 @@ def parse_readme(statuses):
                 f.write(line)
                 for node in statuses:
                     f.write(f"|{node}|{statuses[node]}|\n")
-                f.write(f"Last update: {date_time_str}\n")
+                f.write(f"\nLast update: {date_time_str}\n")
                 continue
-            f.write(line)
+            if "Last update:" not in line:
+                f.write(line)
     
 main()
