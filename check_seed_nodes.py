@@ -26,6 +26,9 @@ def check_ip(host,ip):
         if "onion" in host:
             socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050, True)
             sock = socks.socksocket()
+        if ".b32.i2p" in host:
+            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 4447, True)
+            sock = socks.socksocket()
         sock.settimeout(30)
         sock.connect((host,ip))
     except:
@@ -72,7 +75,7 @@ def main():
                 nodes.append(line.split("\"")[1])
         if "return full_addrs;" in line and at_ipv4 == 1:
             at_ipv4 = 0
-        if "onion" in line:
+        if ".onion" in line or ".b32.i2p" in line:
             nodes.append(line.split("\"")[1])
 
     statuses = {}
