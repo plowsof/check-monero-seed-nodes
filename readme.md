@@ -24,7 +24,7 @@
 |plowsof3t5hogddwabaeiyrno25efmzfxyro2vligremt7sxpsclfaid.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
 |plowsoffjexmxalw73tkjmf422gq6575fc7vicuu4javzn2ynnte6tyd.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
 
-Last update: 2023-08-01
+Last update: 2023-08-02
 ```
 pip install PySocks
 git clone https://github.com/plowsof/check-monero-seed-nodes
