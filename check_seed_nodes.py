@@ -27,7 +27,7 @@ def check_ip(host,ip):
             socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050, True)
             sock = socks.socksocket()
         if ".b32.i2p" in host:
-            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 4447, True)
+            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 4444, True)
             sock = socks.socksocket()
         sock.settimeout(30)
         sock.connect((host,ip))
