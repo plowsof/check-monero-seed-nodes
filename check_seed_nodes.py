@@ -81,12 +81,16 @@ def main():
         ip=node.split(":")[1]
         attempts = 0
         while attempts < 3:
-            if check_ip(host, int(ip)):
-                print(f"{node} online")
-                attempts = 0
-                break
-            else:
-                attempts+=1
+            try:
+                if check_ip(host, int(ip)):
+                    print(f"{node} online")
+                    attempts = 0
+                    break
+                else:
+                    attempts+=1
+            except:
+                print(f"{node} timeout")
+                attempts = 4
         if attempts != 0:
             print(f"{node} offline")
             statuses[node] = "😡"
