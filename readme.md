@@ -17,14 +17,14 @@
 |192.99.8.110:18080|🙂🙂🙂🙂🙂🙂🙂|
 |37.187.74.171:18080|🙂🙂🙂🙂🙂🙂🙂|
 |77.172.183.193:18080|😡😡😡😡😡😡😡|
-|zbjkbsxc5munw3qusl7j2hpcmikhqocdf4pqhnhtpzw5nt5jrmofptid.onion:18083|😡😡😡😡😡😡🙂|
+|zbjkbsxc5munw3qusl7j2hpcmikhqocdf4pqhnhtpzw5nt5jrmofptid.onion:18083|😡😡😡😡😡🙂😡|
 |qz43zul2x56jexzoqgkx2trzwcfnr6l3hbtfcfx54g4r3eahy3bssjyd.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
-|plowsof3t5hogddwabaeiyrno25efmzfxyro2vligremt7sxpsclfaid.onion:18083|🙂🙂🙂🙂😡🙂🙂|
+|plowsof3t5hogddwabaeiyrno25efmzfxyro2vligremt7sxpsclfaid.onion:18083|🙂🙂🙂😡🙂🙂🙂|
 |plowsoffjexmxalw73tkjmf422gq6575fc7vicuu4javzn2ynnte6tyd.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
 |plowsofe6cleftfmk2raiw5h2x66atrik3nja4bfd3zrfa2hdlgworad.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
 |aclc4e2jhhtr44guufbnwk5bzwhaecinax4yip4wr4tjn27sjsfg6zqd.onion:18083|🙂🙂🙂🙂🙂🙂🙂|
 
-Last update: 2024-11-27
+Last update: 2024-11-28
 ```
 pip install PySocks
 git clone https://github.com/plowsof/check-monero-seed-nodes
