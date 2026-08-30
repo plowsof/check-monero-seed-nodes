@@ -10,7 +10,7 @@
 |37.187.74.171:38080|🙂🙂🙂🙂🙂🙂🙂|
 |88.99.195.15:38080|🙂🙂🙂🙂🙂🙂🙂|
 |5.104.84.64:38080|🙂🙂🙂🙂🙂🙂🙂|
-|176.9.0.187:18080|🙂🙂😡😡🙂😡🙂|
+|176.9.0.187:18080|🙂😡😡🙂😡🙂😡|
 |88.198.163.90:18080|😡😡😡😡😡😡😡|
 |192.99.8.110:18080|🙂🙂🙂🙂🙂🙂🙂|
 |37.187.74.171:18080|🙂🙂🙂🙂🙂🙂🙂|
@@ -23,7 +23,7 @@
 |aclc4e2jhhtr44guufbnwk5bzwhaecinax4yip4wr4tjn27sjsfg6zqd.onion:18083|😡😡😡😡😡😡😡|
 |lykcas4tus7mkm4bhsgqe4drtd4awi7gja24goscc47xfgzj54yofyqd.onion:18083|😡😡😡😡😡😡😡|
 
-Last update: 2026-08-29
+Last update: 2026-08-30
 ```
 pip install PySocks
 git clone https://github.com/plowsof/check-monero-seed-nodes
